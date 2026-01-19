@@ -7,7 +7,7 @@
     body{
       height:100vh;
       display:flex;
-      flex-direction:column; /* texto em cima + botão */
+      flex-direction:column;
       justify-content:center;
       align-items:center;
       margin:0;
@@ -26,6 +26,12 @@
 
     .texto-chamada span{
       color:#075E54;
+    }
+
+    /* imagem acima do botão */
+    .imagem-topo{
+      max-width:380px;   /* ajuste se quiser */
+      margin-bottom:40px; /* ESPAÇO ENTRE IMAGEM E BOTÃO */
     }
 
     .btn-shopee{
@@ -49,12 +55,17 @@
 </head>
 <body>
 
+<!-- IMAGEM VINDO DA RAIZ -->
+  <img src="imagem.png" alt="Imagem destaque" class="imagem-topo">
+
+  
   <div class="texto-chamada">
-    CLICK ABAIXO PARA SER REDIRECIONADO<span></span> <br>
-    
+    PEÇA SEU ACESSO AGORA! <br>
+    CLIQUE ABAIXO PARA SER REDIRECIONADO
   </div>
 
-  <a href="https://wa.me/+551152291767" class="btn-shopee">
+
+  <a href="https://wa.me/551152291767" class="btn-shopee">
     IR PRO WHATSAPP
   </a>
 
