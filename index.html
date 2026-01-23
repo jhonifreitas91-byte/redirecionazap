@@ -4,105 +4,67 @@
   <meta charset="UTF-8">
   <title>Redireciona</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
     body{
       height:100vh;
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
-      background:#ffffff;
+      margin:0;
+      background:#fffffff;
       text-align:center;
       font-family: Arial, Helvetica, sans-serif;
     }
+
     .texto-chamada{
       font-size:42px;
       font-weight:700;
       color:#111;
-      margin-bottom:20px;
+      margin-bottom:30px;
       line-height:1.2;
     }
-    .texto-chamada span{color:#075E54;}
-    .form-box{
-      background:#f5f5f5;
-      border:2px solid #075E54;
-      border-radius:8px;
-      padding:45px 50px;
-      width:90%;
-      max-width:800px;          /* ainda maior */
-      font-size:1.3em;
-    }
-    .form-box h3{
-      font-size:1.5em;
+
+    .texto-chamada span{
       color:#075E54;
-      margin-bottom:22px;
     }
-    .form-box input, .form-box select{
-      width:100%;
-      padding:16px;
-      margin:10px 0;
-      border:1px solid #ccc;
-      border-radius:4px;
-      font-size:1.1em;
+
+    /* imagem acima do botão */
+    .imagem-topo{
+      max-width:600px;   /* ajuste se quiser */
+      margin-bottom:40px; /* ESPAÇO ENTRE IMAGEM E BOTÃO */
     }
-    .form-box button{
-      background:#075E54;
+
+    .btn-shopee{
+      background:#00AFF0;
       color:#fff;
       border:none;
-      padding:18px 30px;
-      border-radius:4px;
+      padding:22px 110px;
+      font-size:63px;
       font-weight:700;
+      border-radius:6px;
       cursor:pointer;
-      margin-top:18px;
-      width:100%;
-      font-size:1.2em;
+      transition:background .2s;
+      box-shadow:0 4px 12px rgba(0,0,0,.25);
+      text-decoration:none;
+    }
+
+    .btn-shopee:hover{
+      background:#00AFF0;
     }
   </style>
 </head>
 <body>
 
+  
   <div class="texto-chamada">
-     <br> QUER PARAR DE SER UMA VERGONHA?<br>
-    RESPONDA RÁPIDO E SIGA EM FRENTE
+     <br> QUER PARAR DE SER UMA VERGONHA?
+    CLIQUE ABAIXO PARA SER REDIRECIONADO
   </div>
 
-  <!-- FORMULÁRIO GRANDÃO – agora é o BOTÃO -->
-  <form class="form-box" onsubmit="salvarERedirecionar(event)">
-    <h3>Qual o tamanho do seu 🍌 atualmente?</h3>
-    <input type="number" id="atual" placeholder="Tamanho atual (cm)" min="5" max="25" required>
 
-    <h3>Qual tamanho pretende chegar?</h3>
-    <input type="number" id="meta" placeholder="Quer chegar a (cm)" min="10" max="30" required>
-
-    <h3>Qual a sua idade?</h3>
-    <input type="number" id="idade" placeholder="Sua idade" min="18" max="80" required>
-
-    <h3>Já testou algum outro método?</h3>
-    <select id="metodo" required>
-      <option value="">Selecione</option>
-      <option value="nao">Nunca tentei</option>
-      <option value="bomba">Bomba</option>
-      <option value="remedio">Remédio</option>
-      <option value="exercicio">Exercícios</option>
-      <option value="outro">Outro</option>
-    </select>
-
-    <button type="submit">IR PARA O SITE →</button>
-  </form>
-
-  <script>
-    function salvarERedirecionar(e){
-      e.preventDefault();
-      const dados = {
-        atual:  document.getElementById('atual').value,
-        meta:   document.getElementById('meta').value,
-        idade:  document.getElementById('idade').value,
-        metodo: document.getElementById('metodo').value
-      };
-      localStorage.setItem('dadosRastreamento', JSON.stringify(dados));
-      window.location.href = 'https://drpriscilacelles.vercel.app/';
-    }
-  </script>
+  <a href="https://drpriscilacelles.vercel.app/" class="btn-shopee">
+    IR PARA O SITE
+  </a>
 
 </body>
 </html>
