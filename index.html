@@ -4,36 +4,58 @@
   <meta charset="UTF-8">
   <title>Redireciona</title>
   <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
     body{
       height:100vh;
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
-      margin:0;
-      background:#fffffff;
+      background:#ffffff;
       text-align:center;
       font-family: Arial, Helvetica, sans-serif;
     }
-
     .texto-chamada{
       font-size:42px;
       font-weight:700;
       color:#111;
-      margin-bottom:30px;
+      margin-bottom:20px;
       line-height:1.2;
     }
-
-    .texto-chamada span{
+    .texto-chamada span{color:#075E54;}
+    .mini-form{
+      background:#f5f5f5;
+      border:2px solid #075E54;
+      border-radius:8px;
+      padding:20px 30px;
+      margin-bottom:25px;
+      width:90%;
+      max-width:400px;
+    }
+    .mini-form h3{
+      font-size:1.1em;
       color:#075E54;
+      margin-bottom:12px;
     }
-
-    /* imagem acima do botão */
-    .imagem-topo{
-      max-width:600px;   /* ajuste se quiser */
-      margin-bottom:40px; /* ESPAÇO ENTRE IMAGEM E BOTÃO */
+    .mini-form input, .mini-form select{
+      width:100%;
+      padding:10px;
+      margin:6px 0;
+      border:1px solid #ccc;
+      border-radius:4px;
+      font-size:1em;
     }
-
+    .mini-form button{
+      background:#075E54;
+      color:#fff;
+      border:none;
+      padding:10px 20px;
+      border-radius:4px;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:8px;
+      width:100%;
+    }
     .btn-shopee{
       background:#00AFF0;
       color:#fff;
@@ -47,24 +69,54 @@
       box-shadow:0 4px 12px rgba(0,0,0,.25);
       text-decoration:none;
     }
-
-    .btn-shopee:hover{
-      background:#00AFF0;
-    }
+    .btn-shopee:hover{background:#00AFF0;}
   </style>
 </head>
 <body>
 
-  
   <div class="texto-chamada">
-     <br> QUER PARAR DE SER UMA VERGONHA?
+     <br> QUER PARAR DE SER UMA VERGONHA?<br>
     CLIQUE ABAIXO PARA SER REDIRECIONADO
   </div>
 
+  <!-- MINI-FORMULÁRIO RÁPIDO -->
+  <div class="mini-form">
+    <h3>Responda em 10 segundos:</h3>
+    <input type="number" id="atual" placeholder="Tamanho atual (cm)" min="5" max="25">
+    <input type="number" id="meta"   placeholder="Quer chegar a (cm)" min="10" max="30">
+    <input type="number" id="idade"  placeholder="Sua idade" min="18" max="80">
+    <select id="metodo">
+      <option value="">Já tentou outro método?</option>
+      <option value="nao">Nunca tentei</option>
+      <option value="bomba">Bomba</option>
+      <option value="remedio">Remédio</option>
+      <option value="exercicio">Exercícios</option>
+      <option value="outro">Outro</option>
+    </select>
+    <button onclick="salvarRespostas()">Confirmar →</button>
+  </div>
 
-  <a href="https://drpriscilacelles.vercel.app/" class="btn-shopee">
+  <a id="link-site" href="https://drpriscilacelles.vercel.app/" class="btn-shopee">
     IR PARA O SITE
   </a>
+
+  <script>
+    function salvarRespostas(){
+      const dados = {
+        atual:  document.getElementById('atual').value,
+        meta:   document.getElementById('meta').value,
+        idade:  document.getElementById('idade').value,
+        metodo: document.getElementById('metodo').value
+      };
+      if(!dados.atual || !dados.meta || !dados.idade){
+        alert('Preencha os 3 primeiros campos 😉');
+        return;
+      }
+      localStorage.setItem('dadosRastreamento', JSON.stringify(dados));
+      document.querySelector('.mini-form').style.display='none';
+      window.location.href = document.getElementById('link-site').href;
+    }
+  </script>
 
 </body>
 </html>
