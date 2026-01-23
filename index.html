@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Redireciona</title>
   <style>
+    *{box-sizing:border-box;}
     body{
       height:100vh;
       display:flex;
@@ -11,100 +12,142 @@
       justify-content:center;
       align-items:center;
       margin:0;
-      background:#ffffff;
+      background:#000;
       text-align:center;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:Arial,Helvetica,sans-serif;
+      color:#fff;
     }
-
-    .texto-chamada{
-      font-size:42px;
+    .topo{
+      font-size:44px;
       font-weight:700;
-      color:#111;
-      margin-bottom:30px;
-      line-height:1.2;
+      line-height:1.15;
+      margin-bottom:25px;
+      padding:0 15px;
     }
-
-    .texto-chamada span{
-      color:#075E54;
+    .topo span{
+      color:#00ff1e;
     }
-
     .bonus-box{
       background:#ffe600;
-      color:#000;
-      padding:25px 40px;
-      border-radius:8px;
-      margin:30px auto;
-      max-width:700px;
-      box-shadow:0 4px 20px rgba(0,0,0,.25);
+     color:#000;
+      padding:30px 40px;
+      border-radius:12px;
+      margin:0 auto 35px;
+      max-width:720px;
+      box-shadow:0 0 25px #ffe600;
+      position:relative;
     }
-
     .bonus-box h2{
-      font-size:36px;
-      margin:0 0 15px 0;
+      font-size:42px;
+      margin:0 0 20px 0;
       text-transform:uppercase;
       letter-spacing:1px;
     }
-
+    .bonus-box .preco{
+      margin:15px 0;
+    }
+    .bonus-box .preco strike{
+      color:#555;
+      font-size:46px;
+    }
+    .bonus-box .preco strong{
+      color:#00d61f;
+      font-size:58px;
+      display:block;
+      margin-top:5px;
+    }
+    .bonus-box .preco small{
+      font-size:22px;
+      color:#333;
+    }
     .bonus-box ul{
       list-style:none;
       padding:0;
-      margin:0 0 20px 0;
-      font-size:22px;
-      line-height:1.5;
+      margin:20px 0;
+      font-size:26px;
+      line-height:1.4;
+      text-align:left;
     }
-
     .bonus-box li{
-      margin:8px 0;
+      margin:10px 0;
     }
-
     .bonus-box .aviso{
-      font-size:20px;
+      font-size:24px;
       font-weight:700;
       color:#d90000;
+      margin-top:20px;
     }
-
+    .bonus-box img{
+      width:100%;
+      max-width:420px;
+      margin:20px 0 10px 0;
+      border:4px solid #fff;
+      border-radius:10px;
+    }
     .btn-shopee{
-      background:#00AFF0;
+      background:#00d61f;
       color:#fff;
       border:none;
-      padding:22px 110px;
-      font-size:63px;
+      padding:28px 120px;
+      font-size:68px;
       font-weight:700;
-      border-radius:6px;
+      border-radius:8px;
       cursor:pointer;
-      transition:background .2s;
-      box-shadow:0 4px 12px rgba(0,0,0,.25);
+      transition:all .2s;
+      box-shadow:0 6px 20px rgba(0,214,31,.45);
       text-decoration:none;
+      display:inline-block;
     }
-
     .btn-shopee:hover{
-      background:#0096d6;
+      transform:scale(1.05);
+      box-shadow:0 8px 30px rgba(0,214,31,.6);
+    }
+    @media(max-width:600px){
+      .topo{font-size:32px;}
+      .bonus-box h2{font-size:32px;}
+      .bonus-box .preco strong{font-size:48px;}
+      .bonus-box ul{font-size:22px;}
+      .btn-shopee{font-size:48px;padding:22px 60px;}
     }
   </style>
 </head>
 <body>
 
-  <div class="texto-chamada">
-    <br> QUER PARAR DE SER UMA VERGONHA?<br>
-    CLIQUE ABAIXO PARA SER REDIRECIONADO
+  <div class="topo">
+    Se ela riu do seu tamanho ontem,<br>
+    daqui <span id="relogio">37:00</span> você pode ter <span>7 cm a mais</span><br>
+    ou continuar sendo o <em>small guy</em> pra sempre.
   </div>
 
   <div class="bonus-box">
-    <h2>🚨 ÚLTIMA CHANCE – COMPRANDO AGORA VOCÊ LEVA:</h2>
-    <ul>
-      <li>✅ + Creme Pós-Tratamento VIP (R$ 147) → <strong>GRÁTIS</strong></li>
-      <li>✅ + Acesso ao Grupo Secreto de Homens (R$ 97) → <strong>GRÁTIS</strong></li>
-      <li>✅ + Guia “Ereção de Aço em 7 Dias” (R$ 67) → <strong>GRÁTIS</strong></li>
-      <li>✅ + Garantia Estendida 90 dias (R$ 49) → <strong>GRÁTIS</strong></li>
-    </ul>
-    <div class="aviso">
-      APROVEITE: ESSA OFERTA SÓ APARECE NA PRIMEIRA VISITA AO SITE!
+    <div class="preco">
+      <strike>R$ 397,00</strike>
+      <strong>R$ 19,90</strong>
+      <small>menos que uma pizza, mas que faz você crescer 7 cm pra sempre</small>
     </div>
+    <ul>
+      <li>✅ Creme Pós-Tratamento VIP (R$ 147) → <strong>GRÁTIS</strong></li>
+      <li>✅ Acesso ao Grupo Secreto de Homens (R$ 97) → <strong>GRÁTIS</strong></li>
+      <li>✅ Guia “Ereção de Aço em 7 Dias” (R$ 67) → <strong>GRÁTIS</strong></li>
+      <li>✅ Garantia Estendida 90 dias (R$ 49) → <strong>GRÁTIS</strong></li>
+    </ul>
+    <img src="print-zap.jpg" alt="Print WhatsApp">
+    <div class="aviso">Oferta fica disponível SÓ nessa primeira visita – quando o relógio zerar, fecha.</div>
   </div>
 
   <a href="https://drpriscilacelles.vercel.app/" class="btn-shopee">
-    IR PARA O SITE
+    QUERO CRESCER 7 CM AGORA
   </a>
+
+  <script>
+    let m=37,s=0,el=document.getElementById('relogio');
+    const tick=()=>{
+      if(--s<0){s=59;m--;}
+      el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+      if(m===0&&s===0){el.style.color='#ff0033';el.textContent='EXPIROU – PREÇO VOLTA A R$ 397';}
+      else setTimeout(tick,1000);
+    };tick();
+  </script>
 
 </body>
 </html>
