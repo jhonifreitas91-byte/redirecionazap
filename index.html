@@ -23,100 +23,84 @@
       line-height:1.2;
     }
     .texto-chamada span{color:#075E54;}
-    .mini-form{
+    .form-box{
       background:#f5f5f5;
       border:2px solid #075E54;
       border-radius:8px;
-      padding:35px 40px;
-      margin-bottom:30px;
+      padding:45px 50px;
       width:90%;
-      max-width:700px;          /* largura aumentada */
-      font-size:1.2em;          /* texto maior */
+      max-width:800px;          /* ainda maior */
+      font-size:1.3em;
     }
-    .mini-form h3{
-      font-size:1.4em;
+    .form-box h3{
+      font-size:1.5em;
       color:#075E54;
-      margin-bottom:18px;
+      margin-bottom:22px;
     }
-    .mini-form input, .mini-form select{
+    .form-box input, .form-box select{
       width:100%;
-      padding:14px;
-      margin:8px 0;
+      padding:16px;
+      margin:10px 0;
       border:1px solid #ccc;
       border-radius:4px;
       font-size:1.1em;
     }
-    .mini-form button{
+    .form-box button{
       background:#075E54;
       color:#fff;
       border:none;
-      padding:14px 24px;
+      padding:18px 30px;
       border-radius:4px;
       font-weight:700;
       cursor:pointer;
-      margin-top:12px;
+      margin-top:18px;
       width:100%;
-      font-size:1.1em;
+      font-size:1.2em;
     }
-    .btn-shopee{
-      background:#00AFF0;
-      color:#fff;
-      border:none;
-      padding:22px 110px;
-      font-size:63px;
-      font-weight:700;
-      border-radius:6px;
-      cursor:pointer;
-      transition:background .2s;
-      box-shadow:0 4px 12px rgba(0,0,0,.25);
-      text-decoration:none;
-    }
-    .btn-shopee:hover{background:#00AFF0;}
   </style>
 </head>
 <body>
 
   <div class="texto-chamada">
      <br> QUER PARAR DE SER UMA VERGONHA?<br>
-    CLIQUE ABAIXO PARA SER REDIRECIONADO
+    RESPONDA RÁPIDO E SIGA EM FRENTE
   </div>
 
-  <!-- MINI-FORMULÁRIO – bem maior -->
-  <div class="mini-form">
-    <h3>Responda em 10 segundos:</h3>
-    <input type="number" id="atual" placeholder="Tamanho atual (cm)" min="5" max="25">
-    <input type="number" id="meta"   placeholder="Quer chegar a (cm)" min="10" max="30">
-    <input type="number" id="idade"  placeholder="Sua idade" min="18" max="80">
-    <select id="metodo">
-      <option value="">Já tentou outro método?</option>
-      <option value="nao">Nunca t tentei</option>
+  <!-- FORMULÁRIO GRANDÃO – agora é o BOTÃO -->
+  <form class="form-box" onsubmit="salvarERedirecionar(event)">
+    <h3>Qual o tamanho do seu 🍌 atualmente?</h3>
+    <input type="number" id="atual" placeholder="Tamanho atual (cm)" min="5" max="25" required>
+
+    <h3>Qual tamanho pretende chegar?</h3>
+    <input type="number" id="meta" placeholder="Quer chegar a (cm)" min="10" max="30" required>
+
+    <h3>Qual a sua idade?</h3>
+    <input type="number" id="idade" placeholder="Sua idade" min="18" max="80" required>
+
+    <h3>Já testou algum outro método?</h3>
+    <select id="metodo" required>
+      <option value="">Selecione</option>
+      <option value="nao">Nunca tentei</option>
       <option value="bomba">Bomba</option>
       <option value="remedio">Remédio</option>
       <option value="exercicio">Exercícios</option>
       <option value="outro">Outro</option>
     </select>
-    <button onclick="salvarRespostas()">Confirmar →</button>
-  </div>
 
-  <a id="link-site" href="https://drpriscilacelles.vercel.app/" class="btn-shopee">
-    IR PARA O SITE
-  </a>
+    <button type="submit">CONFIRMAR →</button>
+  </form>
 
   <script>
-    function salvarRespostas(){
+    function salvarERedirecionar(e){
+      e.preventDefault();
       const dados = {
         atual:  document.getElementById('atual').value,
         meta:   document.getElementById('meta').value,
         idade:  document.getElementById('idade').value,
         metodo: document.getElementById('metodo').value
       };
-      if(!dados.atual || !dados.meta || !dados.idade){
-        alert('Preencha os 3 primeiros campos 😉');
-        return;
-      }
       localStorage.setItem('dadosRastreamento', JSON.stringify(dados));
-      document.querySelector('.mini-form').style.display='none';
-      window.location.href = document.getElementById('link-site').href;
+      window.location.href = 'https://drpriscilacelles.vercel.app/';
     }
   </script>
 
