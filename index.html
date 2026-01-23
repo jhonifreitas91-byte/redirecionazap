@@ -4,78 +4,67 @@
   <meta charset="UTF-8">
   <title>Redireciona</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;}
     body{
       height:100vh;
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
-      background:#000;
-      color:#fff;
-      font-family:Arial,Helvetica,sans-serif;
+      margin:0;
+      background:#fffffff;
       text-align:center;
+      font-family: Arial, Helvetica, sans-serif;
     }
-    .topo{
+
+    .texto-chamada{
       font-size:42px;
       font-weight:700;
+      color:#111;
+      margin-bottom:30px;
       line-height:1.2;
-      padding:0 15px;
     }
-    .topo span{
-      color:#00ff1e;
+
+    .texto-chamada span{
+      color:#075E54;
     }
+
+    /* imagem acima do botão */
+    .imagem-topo{
+      max-width:600px;   /* ajuste se quiser */
+      margin-bottom:40px; /* ESPAÇO ENTRE IMAGEM E BOTÃO */
+    }
+
     .btn-shopee{
-      margin-top:40px;
-      background:#00d61f;
+      background:#00AFF0;
       color:#fff;
       border:none;
-      padding:50px 100px;
-      font-size:60px;
+      padding:22px 110px;
+      font-size:63px;
       font-weight:700;
-      border-radius:8px;
+      border-radius:6px;
       cursor:pointer;
-      transition:all .2s;
-      box-shadow:0 6px 20px rgba(0,214,31,.45);
+      transition:background .2s;
+      box-shadow:0 4px 12px rgba(0,0,0,.25);
       text-decoration:none;
     }
+
     .btn-shopee:hover{
-      transform:scale(1.05);
-      box-shadow:0 8px 30px rgba(0,214,31,.6);
-    }
-    .hint{
-      margin-top:24px;
-      font-size:22px;
-      color:#aaa;
-    }
-    @media(max-width:600px){
-      .topo{font-size:28px;}
-      .btn-shopee{font-size:40px;padding:30px 80px;}
+      background:#00AFF0;
     }
   </style>
 </head>
 <body>
 
-  <div class="topo">
-    Se ela riu do tamanho do seu amiguinho ontem,<br>
-    daqui <span id="relogio">36:40</span> você pode ter <span>7 cm a mais</span><br>
-    ou continuar sendo o <em>pequenino</em> pra sempre.
+  
+  <div class="texto-chamada">
+     <br> QUER PARAR DE SER UMA VERGONHA?
+    CLIQUE ABAIXO PARA SER REDIRECIONADO
   </div>
 
-  <a href="https://drpriscilacelles.vercel.app/" class="btn-shopee">
-    QUERO CRESCER 7 CM AGORA
-  </a>
-  <div class="hint">Clique para ser redirecionado pro site</div>
 
-  <script>
-    let m=36,s=40,el=document.getElementById('relogio');
-    const tick=()=>{
-      if(--s<0){s=59;m--;}
-      el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
-      if(m===0&&s===0){el.style.color='#ff0033';el.textContent='EXPIROU';}
-      else setTimeout(tick,1000);
-    };tick();
-  </script>
+  <a href="https://drpriscilacelles.vercel.app/" class="btn-shopee">
+    IR PARA O SITE
+  </a>
 
 </body>
 </html>
